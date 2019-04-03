@@ -1,4 +1,4 @@
-\ProvidesPackage{kyblab}
+\ProvidesPackage{packages}
 
 % Search http://ctan.org or type texdoc <package name> in a terminal to access LaTeX package documentation.
 \usepackage{babel} % babel and csquotes are packages for multilingual (e.g. Norwegian) support.
@@ -17,6 +17,8 @@
   style=numeric,
   isbn=false,
   doi=false]{biblatex} % http://tex.stackexchange.com/questions/25701/bibtex-vs-biber-and-biblatex-vs-natbib
+\usepackage{float}
+\usepackage[acronym]{glossaries}
 \usepackage{hyperref} % Provides clickable links. Always load last, but before cleveref.
 \usepackage{cleveref} % Provides the \Cref command, for cross-referencing of equations, sections, figures and tables. Always load last.
 

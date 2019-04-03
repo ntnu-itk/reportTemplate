@@ -1,36 +1,46 @@
 \documentclass[11pt, a4paper, USenglish]{article} % change ``USenglish'' to ``norsk'' if applicable.
 
-\usepackage{kyblab} % Contains all included packages. See kyblab.sty.
+\usepackage{packages} % Contains all included packages. See packages.sty.
 \addbibresource{bibliography.bib} % Makes the bibliography file available to biblatex.
+\makeglossaries
 
 \begin{document}
-
+\input{glossary.tex}
 % Titlepage
 \title{LaTeX Lab Report Template}
 \author{Group 00\\Student 70000\\Student 70001\\Student 70002}
-\date{January 1, 1970}
+\date{\today}
 \begin{titlepage}
     \maketitle
     \begin{figure}
     \centering
-    \includegraphics[width=0.5\textwidth]{figures/itk_ntnu}\\
+    \includegraphics[width=0.5\textwidth]{figures/logo/itk_ntnu.jpg}\\
     Department of Engineering Cybernetics
     \end{figure}
     \thispagestyle{empty}
 \end{titlepage}
+\pagenumbering{Roman}
+\setlength\parindent{0pt}
 
 % Abstract
 \newpage
 \input{abstract}
-\thispagestyle{empty} % Avoid page numbering on the abstract page.
+
 
 % TOC
 \newpage
 \tableofcontents
-\thispagestyle{empty} % Avoid page numbering on the table of contents.
+
+
+\newpage
+\input{list_of_figures.tex}
+\newpage
+\input{list_of_tables.tex}
 
 % Main content
+
 \newpage
+\pagenumbering{arabic}
 \setcounter{page}{1}
 \include{intro}
 \include{part1}
@@ -40,6 +50,12 @@
 \include{appendix}
 % \input simply inserts the contents of the file, while \include forces a \newpage.
 % See \input vs. \include: http://tex.stackexchange.com/questions/246/when-should-i-use-input-vs-include
+
+% https://tex.stackexchange.com/questions/86666/how-to-create-both-list-of-abbreviations-and-list-of-nomenclature-using-nomencl
+\newpage
+\addcontentsline{toc}{section}{Abbreviations}
+\printglossary[type=\acronymtype,title=Abbreviations]
+\printglossary[title=Nomenclature]
 
 % References
 \newpage
